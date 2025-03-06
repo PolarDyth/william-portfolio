@@ -41,14 +41,14 @@ export default function Expertise() {
   ]
 
   return (
-    <section id="expertise" className="bg-muted/50 px-6 py-20 rounded-3xl">
+    <section id="skills" className="bg-muted/50 px-6 py-20 rounded-3xl">
       <div>
         <h1 className="text-4xl font-bold mb-4">Technical Expertise</h1>
         <p className="text-muted-foreground max-w-2xl mx-auto">With a strong foundation in multiple programming languages and frameworks, I build robust and scalable applications.</p>
       </div>
       <div className="flex">
         {cards.map((props, index) => (
-          <div key={index} className="text-left flex flex-col gap-4 p-8 rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+          <div key={index} className="text-left cursor-pointer flex flex-col gap-4 p-8 rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all">
             <div className="bg-primary/20 text-primary p-4 rounded-lg mb-4 w-fit">
               {props.icon}
             </div>
