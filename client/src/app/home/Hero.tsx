@@ -8,10 +8,10 @@ export default function Hero() {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState(150);
+  const [typingSpeed, setTypingSpeed] = useState((Math.random() * 200) + 100);
   
   const words = ["Digital", "Personal", "Creative", "Innovative"];
-  const period = 1000;
+  const period = 1500;
 
   useEffect(() => {
     const handleTyping = () => {
@@ -43,7 +43,7 @@ export default function Hero() {
         <span className="bg-muted text-primary px-3 py-1 rounded text-sm">MSc Software Engineering Student</span>
         <h1 className="text-5xl md:text-7xl font-bold leading-tight">
           <span>Building</span> <br />
-          <span className="text-secondary inline-block min-w-[200px]">{text}<span className="animate-pulse">|</span></span> <br />
+          <span className="text-secondary inline-block min-w-[200px]">{text}<span className="animate-pulse duration-0.5s">|</span></span> <br />
           <span>Experiences</span>
         </h1>
         <p className="text-muted-foreground">
