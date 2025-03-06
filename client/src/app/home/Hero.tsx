@@ -8,8 +8,8 @@ export default function Hero() {
   const [text, setText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [loopNum, setLoopNum] = useState(0);
-  const [typingSpeed, setTypingSpeed] = useState((Math.random() * 200) + 100);
-  
+  const [typingSpeed, setTypingSpeed] = useState(150);
+
   const words = ["Digital", "Personal", "Creative", "Innovative"];
   const period = 1500;
 
@@ -18,8 +18,8 @@ export default function Hero() {
       const i = loopNum % words.length;
       const fullText = words[i];
 
-      setText(isDeleting 
-        ? fullText.substring(0, text.length - 1) 
+      setText(isDeleting
+        ? fullText.substring(0, text.length - 1)
         : fullText.substring(0, text.length + 1)
       );
 
@@ -63,17 +63,17 @@ export default function Hero() {
         </div>
         <div className="flex gap-5 items-center">
           <Link to="github.com">
-            <SiGithub className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors" />
+            <SiGithub className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors hover:scale-110 transform duration-200" />
           </Link>
           <Link to="linkedin.com">
-            <Linkedin className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors" />
+            <Linkedin className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors hover:scale-110 transform duration-200" />
           </Link>
           <Link to="linkedin.com">
-            <Mail className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors" />
+            <Mail className="w-5px h-5px text-muted-foreground hover:text-foreground transition-colors hover:scale-110 transform duration-200" />
           </Link>
         </div>
       </div>
-      
+
       {/* Rest of the component remains unchanged */}
       <div>
         <svg width="600" height="500" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-lg">

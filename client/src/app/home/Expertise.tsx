@@ -48,7 +48,8 @@ export default function Expertise() {
       </div>
       <div className="flex">
         {cards.map((props, index) => (
-          <div key={index} className="text-left cursor-pointer flex flex-col gap-4 p-8 rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all">
+          <div       key={index} 
+          className="text-left cursor-pointer flex flex-col gap-4 p-8 rounded-xl hover:shadow-lg hover:shadow-primary/20 transition-all hover:-translate-y-1 duration-300" style={{ animationDelay: `${index * 200}ms` }}>
             <div className="bg-primary/20 text-primary p-4 rounded-lg mb-4 w-fit">
               {props.icon}
             </div>
