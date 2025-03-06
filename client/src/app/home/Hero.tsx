@@ -2,15 +2,48 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Linkedin, Mail } from "lucide-react";
 import { Link } from "react-router";
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { useState, useEffect } from "react";
 
 export default function Hero() {
+  const [text, setText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [loopNum, setLoopNum] = useState(0);
+  const [typingSpeed, setTypingSpeed] = useState(150);
+  
+  const words = ["Digital", "Personal", "Creative", "Innovative"];
+  const period = 1000;
+
+  useEffect(() => {
+    const handleTyping = () => {
+      const i = loopNum % words.length;
+      const fullText = words[i];
+
+      setText(isDeleting 
+        ? fullText.substring(0, text.length - 1) 
+        : fullText.substring(0, text.length + 1)
+      );
+
+      setTypingSpeed(isDeleting ? 80 : 150);
+
+      if (!isDeleting && text === fullText) {
+        setTimeout(() => setIsDeleting(true), period);
+      } else if (isDeleting && text === '') {
+        setIsDeleting(false);
+        setLoopNum(loopNum + 1);
+      }
+    };
+
+    const timer = setTimeout(handleTyping, typingSpeed);
+    return () => clearTimeout(timer);
+  }, [text, isDeleting, loopNum, typingSpeed, words]);
+
   return (
     <section id="home" className="container mx-auto py-20 md:py-32 flex flex-col md:flex-row items-center justify-between">
       <div className="md:w-1/2 space-y-6 flex flex-col items-start text-left">
         <span className="bg-muted text-primary px-3 py-1 rounded text-sm">MSc Software Engineering Student</span>
         <h1 className="text-5xl md:text-7xl font-bold leading-tight">
           <span>Building</span> <br />
-          <span className="text-secondary">Digital</span> <br />
+          <span className="text-secondary inline-block min-w-[200px]">{text}<span className="animate-pulse">|</span></span> <br />
           <span>Experiences</span>
         </h1>
         <p className="text-muted-foreground">
@@ -40,6 +73,8 @@ export default function Hero() {
           </Link>
         </div>
       </div>
+      
+      {/* Rest of the component remains unchanged */}
       <div>
         <svg width="600" height="500" viewBox="0 0 500 400" xmlns="http://www.w3.org/2000/svg" className="w-full max-w-lg">
           {/* Terminal window background */}
