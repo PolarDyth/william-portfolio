@@ -51,8 +51,8 @@ export default function Hero() {
         </p>
         <div className="flex gap-5">
           <Button asChild>
-            <Link to="/projects">
-              View Projects <ArrowRight />
+            <Link to="/projects" className="group">
+              View Projects <ArrowRight className="transition-transform group-hover:translate-x-1" />
             </Link>
           </Button>
           <Button asChild variant="outline">
